@@ -3,3 +3,8 @@
     background: #f9f9f9;
 }
 
+.cardContainer{
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
