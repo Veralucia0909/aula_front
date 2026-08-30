@@ -1,4 +1,4 @@
-# 🚀 Nome do Projeto (React + Vite)
+# 🚀Aula Front-End (React + Vite)
 
 Este projeto é uma aplicação web moderna desenvolvida com **React** e empacotada com **Vite**, oferecendo alta performance, recarregamento rápido (HMR) e uma experiência de desenvolvimento otimizada.
 
