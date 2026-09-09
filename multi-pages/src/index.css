@@ -3,7 +3,7 @@
 @layer components{
     .card{
         width: 250px;
-        background: #EEE;
+        background: #a174db;
         box-shadow: 0 0 5px #AAA;
     }
 }

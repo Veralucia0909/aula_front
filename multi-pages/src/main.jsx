@@ -10,6 +10,12 @@ import Main from './layout/Main';
 import { Blog } from './pages/Blog';
 import { AuthProvider } from './context/AuthContext';
 import Login from './pages/Login';
+import PostDetail from './pages/Blog/PostDetail';
+import { Usuarios } from './pages/Usuarios';
+import UserDetail from './pages/Usuarios/UserDetail';
+import { Produtos } from './pages/Produtos/Index';
+import ProductDetail from './pages/Produtos/ProductDetail';
+
 
 const router = createBrowserRouter([
   {
@@ -18,6 +24,11 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path: "sobre", element: <Sobre /> },
       { path: "blog", element: <Blog /> },
+      { path: "post/:id", element: <PostDetail /> },
+      { path: "usuarios", element: <Usuarios /> },
+      { path: "usuario/:id", element: <UserDetail /> },
+      { path: "produtos", element: <Produtos /> },
+      { path: "produtos/:id", element: <ProductDetail /> },
     ]
   },
   {

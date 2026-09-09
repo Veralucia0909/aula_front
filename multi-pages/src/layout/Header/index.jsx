@@ -42,6 +42,24 @@ export const Header = () => {
                     >
                         Blog
                     </NavLink>
+
+                    <NavLink
+                        to="/usuarios"
+                        className={({isActive}) =>
+                            isActive ? "text-blue-600 font-bold" : "text-gray-800"
+                        }
+                    >
+                        Usuários
+                    </NavLink>
+
+                    <NavLink
+                        to="/produtos"
+                        className={({isActive}) =>
+                            isActive ? "text-blue-600 font-bold" : "text-gray-800"
+                        }
+                    >
+                        Produtos
+                    </NavLink>
                 </nav>
 
                 <div>

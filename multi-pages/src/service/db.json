@@ -1,59 +1,130 @@
 {
   "$schema": "./node_modules/json-server/schema.json",
+
   "posts": [
-    { 
-     "id": "1",
-     "image":"https://placehold.co/300x200",
-     "title": "Título 01",
-     "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mattis leo id vehicula congue.",
-     "views": 100 
-    },
-    { 
-     "id": "2",
-     "image":"https://placehold.co/300x200",
-     "title": "Título 02",
-     "description":"Quisque tellus est, laoreet a leo vel, sagittis aliquet ipsum. Pellentesque vel feugiat massa.",
-     "views": 100 
-    },
-    { 
-     "id": "3",
-     "image":"https://placehold.co/300x200",
-     "title": "Título 03",
-     "description":"Nullam vehicula massa lectus, tincidunt ullamcorper nisi varius ac.",
-     "views": 100 
-    },
-    { 
-     "id": "4",
-     "image":"https://placehold.co/300x200",
-     "title": "Título 04",
-     "description":"Sed id risus vitae lorem dignissim condimentum vel at sapien. Etiam convallis erat eu varius consectetur.",
-     "views": 100 
-    },
-    { 
-     "id": "5",
-     "image":"https://placehold.co/300x200",
-     "title": "Título 05",
-     "description":"Phasellus scelerisque ac lorem condimentum tincidunt. Donec at velit libero. ",
-     "views": 100 
-    }
-   
-  ],
-  "comments": [
-    { "id": "1", "text": "a comment about post 1", "postId": "1" },
-    { "id": "2", "text": "another comment about post 1", "postId": "1" }
-  ],
-  "users":[
     {
-      "id":"1",
-      "firstName":"João",
-      "userName":"joao123",
-      "password":"123456"
+      "id": "1",
+      "image": "https://placehold.co/300x200",
+      "title": "Título 01",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mattis leo id vehicula congue.",
+      "views": 100
     },
-     {
-      "id":"2",
-      "firstName":"Maria",
-      "userName":"maria123",
-      "password":"4545647"
+    {
+      "id": "2",
+      "image": "https://placehold.co/300x200",
+      "title": "Título 02",
+      "description": "Quisque tellus est, laoreet a leo vel, sagittis aliquet ipsum. Pellentesque vel feugiat massa.",
+      "views": 100
+    },
+    {
+      "id": "3",
+      "image": "https://placehold.co/300x200",
+      "title": "Título 03",
+      "description": "Nullam vehicula massa lectus, tincidunt ullamcorper nisi varius ac.",
+      "views": 100
+    },
+    {
+      "id": "4",
+      "image": "https://placehold.co/300x200",
+      "title": "Título 04",
+      "description": "Sed id risus vitae lorem dignissim condimentum vel at sapien. Etiam convallis erat eu varius consectetur.",
+      "views": 100
+    },
+    {
+      "id": "5",
+      "image": "https://placehold.co/300x200",
+      "title": "Título 05",
+      "description": "Phasellus scelerisque ac lorem condimentum tincidunt. Donec at velit libero.",
+      "views": 100
+    }
+  ],
+
+  "produtos": [
+    {
+      "id": "1",
+      "image": "https://placehold.co/300x200",
+      "title": "Produto 01",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "price": 49.9
+    },
+    {
+      "id": "2",
+      "image": "https://placehold.co/300x200",
+      "title": "Produto 02",
+      "description": "Quisque tellus est, laoreet a leo vel, sagittis aliquet ipsum.",
+      "price": 129.5
+    },
+    {
+      "id": "3",
+      "image": "https://placehold.co/300x200",
+      "title": "Produto 03",
+      "description": "Nullam vehicula massa lectus, tincidunt ullamcorper nisi varius ac.",
+      "price": 89
+    },
+    {
+      "id": "4",
+      "image": "https://placehold.co/300x200",
+      "title": "Produto 04",
+      "description": "Sed id risus vitae lorem dignissim condimentum vel at sapien.",
+      "price": 199.99
+    }
+  ],
+
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
+  ],
+
+  "users": [
+    {
+      "id": "1",
+      "firstName": "João",
+      "lastName": "da Silva",
+      "userName": "joao123",
+      "password": "123456",
+      "endereco": {
+        "rua": "Rua A",
+        "numero": 123,
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "cep": "01234-567"
+      }
+    },
+    {
+      "id": "2",
+      "firstName": "Maria",
+      "lastName": "Oliveira",
+      "userName": "maria123",
+      "password": "4545647",
+      "endereco": {
+        "rua": "Rua B",
+        "numero": 124,
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "cep": "01234-568"
+      }
+    },
+    {
+      "id": "3",
+      "firstName": "Pedro",
+      "lastName": "Silvo",
+      "userName": "pedro123",
+      "password": "789012",
+      "endereco": {
+        "rua": "Rua C",
+        "numero": 125,
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "cep": "01234-569"
+      }
     }
   ]
 }
