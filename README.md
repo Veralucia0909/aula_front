@@ -1,4 +1,4 @@
-# 💻 3º SEMESTRE — 🚀 Aula Front-End
+# 💻 3º SEMESTRE - 🚀 Aula Front-End
 
 **React • JavaScript • Vite • TypeScript**
 
@@ -67,7 +67,7 @@ Um dos principais conceitos trabalhados é a **componentização**, permitindo d
 * Tratamento de erros
 * Dados recebidos
 
-# 📱 SPA — Single Page Application
+# 📱 SPA - Single Page Application
 
 As **SPAs** permitem atualizar partes da aplicação sem recarregar toda a página.
 
