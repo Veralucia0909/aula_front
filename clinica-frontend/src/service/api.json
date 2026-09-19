@@ -7,13 +7,11 @@
       "password":"1234abcd"
       
     },
-
- {
+    {
       "id":2,
       "email":"maria@email.com",
       "password":"1234abcd"
       
     }
-
   ]
 }

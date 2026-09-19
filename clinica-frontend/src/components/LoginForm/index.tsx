@@ -1,17 +1,18 @@
 import axios from "axios"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router"
-import { useState, useEffect } from 'react';
 import type { User } from "../../types/user"
 import { toast } from "react-toastify"
-import Modal from "../ui/Modal";
-import RegisterUser from "../RegisterUser";
+import Modal from "../ui/Modal"
+import RegisterUser from "../RegisterUser"
+
 
 const LoginForm = ()=>{
 
-    const [email,setEmail] = useState("")
+    const [email,setEmail] = useState<string>("")
     const [password,setPassword] = useState<string>("")
 
-    const [isModalOpen, setIsModalOpen]= useState<boolean>(false)
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
     const navigate = useNavigate()
 
@@ -21,57 +22,53 @@ const LoginForm = ()=>{
     //     }
     // },[navigate])
 
+
     const handleLogin = async(
-        Event: React.FormEvent<HTMLFormElement>
+        event:React.FormEvent<HTMLFormElement>
     )=>{
-        Event.preventDefault()
+        event.preventDefault()
 
         try{
-
             const response = await axios.get<User[]>(
-            "http://localhost:3000/users",
-            {
-               params:{
-                email,
-                password
-
-            } 
-            }
-        )
-
-          if(response.data.length === 0){
-            toast.error("Usuário não encontrado. Verifique o email e senha.",
+                "http://localhost:3000/users",
                 {
-                    autoClose: 3000,
-                    hideProgressBar: true
-
+                    params:{
+                        email,
+                        password
+                    }
                 }
             )
-            return
-          }
-            
-          localStorage.setItem("email", email)
-          toast.success("Login realizado com sucesso!",{
-            autoClose: 2000
-          })
-           
-          setTimeout(()=>{
-            navigate("/dashboard")  
 
-          }, 2000)
+            if(response.data.length === 0){
+                toast.error(
+                    "Usuário não encontrado. Verifique o email e senha",
+                    {
+                        autoClose:3000,
+                        hideProgressBar:true
+                    }
+                )
+                return
+            }
 
+            localStorage.setItem("email",email)
+
+            toast.success("Login realizado com sucesso!",{
+                autoClose:2000
+            })
+
+            setTimeout(()=>{
+                navigate("/dashboard")
+            },2000)
 
 
 
         } catch(error){
-            console.error("Erro ao realizar login:", error)
-            toast.error("Erro ao realizar login. Tente novamente.", {
-                autoClose: 3000,
-                hideProgressBar: true
+            console.error("Erro ao verificar usuário",error)
+            toast.error("Erro ao conectar com o servidor",{
+                autoClose:3000
             })
 
         }
-
     }
 
     return(
@@ -80,7 +77,7 @@ const LoginForm = ()=>{
                 Login
             </h2>
 
-            <form className="space-y-4">
+            <form onSubmit={handleLogin} className="space-y-4">
                 <fieldset>
                     <label
                         htmlFor="email"
@@ -113,6 +110,7 @@ const LoginForm = ()=>{
                         id="password"
                         value={password}
                         minLength={8}
+                        // maxLength={12}
                         onChange={(e)=>setPassword(e.target.value)}
                         required
                         
@@ -129,39 +127,33 @@ const LoginForm = ()=>{
 
             </form>
 
-               <div className="flex justify-between mt-4">
-                 <button
-                 type="button"
-                 onClick={()=> toast.info("Funcionalidade em desenvolvimento")}
-                    className="text-sm text-blue-500 hover:underline cursor-pointer"
-
-                 >
+            <div className="flex justify-between mt-4 text-sm">
+                <button
+                    type="button"
+                    onClick={()=> toast.info("Funcionalidade em desenvolvimento")}
+                    className="text-blue-600 hover:underline cursor-pointer"
+                >
                     Esqueceu sua senha?
+                </button>
 
-                 </button>
+                 <button
+                    type="button"
+                    onClick={()=> setIsModalOpen(true)}
+                    className="text-blue-600 hover:underline cursor-pointer"
+                >
+                    Criar Conta
+                </button>
 
+            </div>
 
-                  <button
-                 type="button"
-                 onClick={()=> setIsModalOpen(true)}
-                className="text-sm text-blue-500 hover:underline cursor-pointer"
-
-                 >
-                    Criar conta
-
-                 </button>
-                    
-               </div>
-            {/*Modal */}
-            <Modal
+        {/* Modal */}
+        <Modal
             isOpen={isModalOpen}
             onClose={()=> setIsModalOpen(false)}
-
+        >
+            <RegisterUser/>
             
-            >
-              <RegisterUser/>
-
-            </Modal>
+        </Modal>
 
         </div>
     )
