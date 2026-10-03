@@ -1,70 +1,75 @@
-# 🏥 Clínica Front-end - (Situação de Aprendizagem para projeto da SA)
+# React + TypeScript + Vite
 
-Repositório da aplicação front-end desenvolvida como Situação de Aprendizagem (SA) para o módulo de desenvolvimento web, aplicando conceitos modernos com **React**, **TypeScript** e **Vite**.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
----
+Currently, two official plugins are available:
 
-## 🚀 Tecnologias Utilizadas
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-A stack principal do projeto conta com as seguintes ferramentas e bibliotecas:
+## React Compiler
 
-* **[React](https://react.dev/)** - Biblioteca JavaScript para construção de interfaces de usuário.
-* **[TypeScript](https://www.typescriptlang.org/)** - Superset do JavaScript que adiciona tipagem estática.
-* **[Vite](https://vite.dev/)** - Ferramenta de build e bundler ultrarrápida.
-* **[React Router](https://reactrouter.com/)** - Gerenciamento de rotas e navegação da aplicação.
-* **[React Toastify](https://fkhadra.github.io/react-toastify/)** - Exibição de notificações (toasts) elegantes e customizáveis.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
----
+## Expanding the ESLint configuration
 
-## 📂 Estrutura de Rotas Inicial
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-Atualmente, o projeto conta com a seguinte configuração de rotas (`main.tsx`):
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-| Caminho (`path`) | Componente | Descrição |
-| --- | --- | --- |
-| `/` | `<Login/>` | Página inicial de autenticação do sistema |
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
 
----
-
-## 🛠️ Como Executar o Projeto
-
-Certifique-se de ter o **Node.js** instalado em sua máquina.
-
-1. **Clone o repositório:**
-```bash
-git clone <url-do-repositorio>
-cd <nome-da-pasta>
-
-```
-
-
-2. **Instale as dependências:**
-```bash
-npm install
-
-```
-
-
-3. **Execute o servidor de desenvolvimento:**
-```bash
-npm run dev
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 
 ```
 
+You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
 
-4. Acesse a aplicação no navegador através do link gerado pelo Vite (geralmente `http://localhost:5173`).
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
----
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 
-## 📌 Próximos Passos
-
-* [ ] Implementar novas páginas (Dashboard, Cadastro de Pacientes, Agendamentos).
-* [ ] Configurar validações de formulário.
-* [ ] Integrar com API/Backend da clínica.
-
----
-
-Desenvolvido durante as aulas de desenvolvimento front-end. 💻✨
-
-
-`
+```
